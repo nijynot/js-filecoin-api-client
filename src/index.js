@@ -37,6 +37,12 @@ module.exports = (fetch, config) => {
     log: {
       tail: require('./cmd/log/tail')(fetch, config)
     },
+    message: {
+      wait: require('./cmd/message/wait')(fetch, config)
+    },
+    miner: {
+      create: require('./cmd/miner/create')(fetch, config)
+    },
     ping: require('./cmd/ping')(fetch, config),
     show: {
       block: require('./cmd/show/block')(fetch, config)
@@ -48,7 +54,9 @@ module.exports = (fetch, config) => {
     version: require('./cmd/version')(fetch, config),
     wallet: {
       addrs: {
-        ls: require('./cmd/wallet/addrs/ls')(fetch, config)
+        lookup: require('./cmd/wallet/addrs/lookup')(fetch, config),
+        ls: require('./cmd/wallet/addrs/ls')(fetch, config),
+        new: require('./cmd/wallet/addrs/new')(fetch, config)
       },
       balance: require('./cmd/wallet/balance')(fetch, config)
     }
